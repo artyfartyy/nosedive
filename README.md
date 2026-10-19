@@ -1,2 +1,2 @@
 # nosedive
-An attempt to create a perfectly harmonic society, in which everyone's social desirability is quantified by an algorithm that measures people's firsthand impression of each individual.
+A project which emulates the software used for rating people in the Black Mirror episode "Nosedive" o algo asi. 
