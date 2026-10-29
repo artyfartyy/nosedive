@@ -63,3 +63,6 @@ def MainOp():
 
 while Obama:
     MainOp()
+
+
+# ich liebe RINDFLEISCH!!!11!
