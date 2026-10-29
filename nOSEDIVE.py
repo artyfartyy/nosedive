@@ -33,8 +33,22 @@ def login():
 
     else:
         print("bruh something else went wrong")
-
-def bruh():
+def userPathCheck():
+    #Checking whether or not the users path exists.
+    pathdebug=False
+    if os.path.isdir("users")==True:
+        if pathdebug==True:
+            print("the path already exists")
+    else:
+        if pathdebug==True:
+            print("false")
+        os.mkdir("users")
+        if os.path.isdir("users")==True and pathdebug==True:
+            print("created the path")
+        elif pathdebug==True:
+            print("error creating the path")
+def MainOp():
+    userPathCheck()
     hello = input("""
     (1) CREATE USER
     (2) LOGIN
@@ -48,4 +62,4 @@ def bruh():
 
 
 while Obama:
-    bruh()
+    MainOp()
