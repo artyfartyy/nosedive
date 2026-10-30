@@ -27,12 +27,11 @@ def login():
                 with open("isloggedin.json", "w") as schweinefleisch:
                     aaa = {"isloggedin": True, "loggedinuser": user}
                     json.dump(aaa, schweinefleisch, indent=3)
-
             else:
                 print("bruh something went wrong")
-
     else:
         print("bruh something else went wrong")
+
 def userPathCheck():
     #Checking whether or not the users path exists.
     pathdebug=False
@@ -47,19 +46,38 @@ def userPathCheck():
             print("created the path")
         elif pathdebug==True:
             print("error creating the path")
+
+def cookieCheck():
+    if os.path.exists("isloggedin.json") == False:
+        with open("isloggedin.json", "w") as ui:
+            json.dump({"isloggedin": False, "loggedinuser": "temporary"}, ui, indent=3)
+    else:
+        print("all good!")
+
 def MainOp():
     userPathCheck()
-    hello = input("""
-    (1) CREATE USER
-    (2) LOGIN
-    \n""")
-    if hello == "1":
-        createUser()
-    elif hello == "2":
-        login()
+    cookieCheck()
+    with open("isloggedin.json", "r") as BigMac:
+        HijoDePuta = json.load(BigMac)
+    if HijoDePuta["isloggedin"] == False:
+        hello = input("""
+        (1) CREATE USER
+        (2) LOGIN
+        \n""")
+        if hello == "1":
+            createUser()
+        elif hello == "2":
+            login()
+        else:
+            print("Bro, you had ONE JOB!")
     else:
-        print("Bro, you had ONE JOB!")
+        Gogol = HijoDePuta["loggedinuser"]
+        print("You're already logged in!")
+        print(f"Welcome back {Gogol}")
 
 
 while Obama:
     MainOp()
+    idk = input("Do you want to do something? [Y/N]: ")
+    if idk.upper() == "N":
+        Obama = False
